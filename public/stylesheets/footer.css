@@ -1,0 +1,25 @@
+.footer {
+      display: flex;
+      width: 100%;
+      background-color: black;
+      user-select: none;
+}
+
+.icon {
+      display: block;
+      height: 150px;
+      width: 20%;
+      /* background-color: blue; */
+      margin-left: 38px;
+      padding: 20px 50px;
+}
+
+.icon:hover {
+      background-color: chartreuse;
+      cursor: pointer;
+}
+
+h3 {
+      font-family: Georgia, 'Times New Roman', Times, serif
+}
+

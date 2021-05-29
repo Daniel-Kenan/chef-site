@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="stylesheets/sign_up.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+
+</head>
+
+<body>
+    <br><br>
+    <h1> q<span>ü</span>rate</h1>
+    
+    <h4 style="text-align: center;">
+        <form action="/login" method="get">
+        <input type="submit" value="Log In" style="width: 29.5%; border-radius: 5px;">
+        </form></h4>
+    <div class="sign_up" id="register">Sign up</div>
+    <div id="container" >
+    </div>
+    
+    <div id="form">
+        <h2>S<span style="text-transform: lowercase;">ign up</span> </h2>
+        <p style="text-transform: lowercase; font-weight: lighter;">please fill in this form to create an account</p>
+        <hr><br>
+        <form action="/signup" method="POST"> 
+            name : <br> <input type="text" name="name" id="width" required><br><br>
+            email: <br>  <input type="email" name="email" id="width" required> <br><br>
+            password:  <br> <input type="password" name="password" id="width" required><br><br>
+           <br>
+            <input type="checkbox" name="remember" id=""> remember me <br><br>
+            <p style="font-weight: lighter;text-transform: lowercase;">by creating an account you agree to our <a href="">terms and conditions</a></p>
+            <!-- <br> -->
+            <input type="button" value="cancel" id="cancel"><input type="submit" value="submit">
+        </form>
+    </div>  
+     
+    <br><br>
+    
+    <footer>
+        <div style="text-align: center;">By signing up , you agree with the <a href="">terms of service</a> <br>
+            and<a href='' style="text-align: center;">
+                privacy policy</a></div>
+    </footer>
+
+
+    <script src="/javascripts/sign-up.js"></script>
+</body>
+
+</html>

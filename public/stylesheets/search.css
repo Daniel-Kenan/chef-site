@@ -1,0 +1,12 @@
+#search-query {
+    position: absolute;
+    top: 20px;
+    z-index: 1;
+    left: 950px;
+    border: none;
+    height: 30px;
+    width: 280px;
+    border-radius: 5px;
+    background-color: white;
+    display: none;
+    font-size: 15px;} 
