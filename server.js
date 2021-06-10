@@ -11,12 +11,9 @@ app.use(express.urlencoded({
 }));
 const users = [];
 
-const {
-    PORT = 3000,
-        NODE_ENV = 'development'
-} = process.env;
+const PORT = process.env.PORT || 8080 ;
 
-const IN_PROD = NODE_ENV == "production";
+const IN_PROD = false ;
 
 app.get('/home', (req, res) => {
     res.render('index')
@@ -40,7 +37,9 @@ app.get('/profile', (req, res) => {
 app.get('/cal', (req, res) => {
     res.render('calender')
 });
-
+app.get('/maps' ,(req , res)=>{
+    res.render('maps');
+})
 // log in information 
 app.post('/login', (req, res) => {
 

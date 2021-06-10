@@ -5,10 +5,18 @@
     <link rel="stylesheet" href="/stylesheets/search.css">
     <link rel="stylesheet" href="/stylesheets/navigation.css">
     <link rel="stylesheet" href="/stylesheets/menu.css">
+
+    <!--jquery  -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--  -->
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qurate</title>
+    <title>Curate</title>
 </head>
 
 <body>
@@ -19,19 +27,19 @@
         </div>
         <div class="img"
             style="margin : 0 auto; width: 200px; padding: 5px 40px; font-size: xx-large;color: aliceblue; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-            Q<span style="text-transform: uppercase;color: chartreuse;">ü</span>RATE
+            C<span style="text-transform: uppercase;color: chartreuse;">ü</span>RATE
         </div>
         <div class="img">
             <img src="/images/magnifying-glass.png" style="width: 45px;height: 45px;" id="search">
         </div>
     </div>
-<div class="opt">
-    <div> <a href="/signup">Sign Up/Log In</a></div>
-    <div>Contact Us</div>
-    <div>About Us</div>
-    <div>Apply To Be A Chief</div>
-</div>
-    
+    <div class="opt">
+        <div> <a href="/signup">Sign Up/Log In</a></div>
+        <div>Contact Us</div>
+        <div>About Us</div>
+        <div>Apply To Be A Chief</div>
+    </div>
+
 
     <div class="body">
 
@@ -39,7 +47,7 @@
             style="width: 100%;height: 620px; display: block;margin: 0 auto">
         <br>
         <div class="content">
-            <h3><b>Chantilly cream</b></h3>
+            <h3 id="zero"><b>Chantilly cream</b></h3>
             <ul>
                 <li>Chill some double(heavy) and some milk in the refrigerator</li>
                 <li>Mix the well-chilled cream with a third of its volume of very cold milk and whisk until frothy</li>
@@ -56,7 +64,7 @@
             style="width: 100%;height: 620px; display: block;margin: 0 auto">
         <br>
         <div class="content">
-            <h3><b>Almond-flour-crepes</b></h3>
+            <h3 id="one"><b>Almond-flour-crepes</b></h3>
             <ul>
                 <li>Prepare some sweet crepe batter and leave it to stand.</li>
                 <li>Meanwhile, make some confectioner's custard(pastry cream), adding 75 g ground almonds to each 600 ml
@@ -74,7 +82,7 @@
             style="width: 100%;height: 620px; display: block;margin: 0 auto">
         <br>
         <div class="content">
-            <h3><b>Diplomat pudding</b></h3>
+            <h3 id="two"><b>Diplomat pudding</b></h3>
             <ul>
                 <li>Coarsely chop 100 g candied fruits.</li>
                 <li>Put in a bowl with 75 g raisins and add 100 ml rum. Leave to macerate for 1 hour.</li>
@@ -96,40 +104,43 @@
         <br>
         <!--  -->
         <img src="./images/courgette-flowers 1.jpg" alt="almond-flour-crepes"
-        style="width: 100%;height: 620px; display: block;margin: 0 auto">
-    <br>
-    <div class="content">
-        <h3><b>Marrow flower fritters</b></h3>
-        <ul>
-           <li>Pick very fresh marrow flowers and wash them only if necessary.</li>
-           <li>Pat them dry, dip them in a light batter and deep-fry them in hot fat at 180 degrees celsius until golden brown.</li>
-           <li>Drain the fritters of the oil by placing them on paper towels, sprinkle with salt and serve very hot as an hors d'oeuvre.</li>
-        </ul>
-        <h5>(Larousse Gastronomique Vegetables and Salads by Robuchon Joel)</h5>
+            style="width: 100%;height: 620px; display: block;margin: 0 auto">
+        <br>
+        <div class="content">
+            <h3 id="three"><b>Marrow flower fritters</b></h3>
+            <ul>
+                <li>Pick very fresh marrow flowers and wash them only if necessary.</li>
+                <li>Pat them dry, dip them in a light batter and deep-fry them in hot fat at 180 degrees celsius until
+                    golden brown.</li>
+                <li>Drain the fritters of the oil by placing them on paper towels, sprinkle with salt and serve very hot
+                    as an hors d'oeuvre.</li>
+            </ul>
+            <h5>(Larousse Gastronomique Vegetables and Salads by Robuchon Joel)</h5>
             <br>
             <input type="button" value="ADD TO CART" class="btn">
-    </div>
-    <br>
+        </div>
+        <br>
 
 
         <!--  -->
 
         <img src="./images/turnip-gratin1 1.jpg" alt="almond-flour-crepes"
-        style="width: 100%;height: 620px; display: block;margin: 0 auto">
-    <br>
-    <div class="content">
-        <h3><b>Turnips au gratin</b></h3>
-        <ul>
-           <li>Peel some turnips and slice them into rounds.</li>
-           <li>Blanch them in boiling salted water, drain and refresh under cold running water and braise in butter.</li>
-           <li>Place the turnip rounds in a buttered gratin dish, smooth the top and coat with Mornay sauce.</li>
-           <li>Sprinkle with grated cheese and brown in a pre-heated oven at 240 degrees celsius.</li>
-        </ul>
-       
+            style="width: 100%;height: 620px; display: block;margin: 0 auto">
+        <br>
+        <div class="content">
+            <h3 id="four"><b>Turnips au gratin</b></h3>
+            <ul>
+                <li>Peel some turnips and slice them into rounds.</li>
+                <li>Blanch them in boiling salted water, drain and refresh under cold running water and braise in
+                    butter.</li>
+                <li>Place the turnip rounds in a buttered gratin dish, smooth the top and coat with Mornay sauce.</li>
+                <li>Sprinkle with grated cheese and brown in a pre-heated oven at 240 degrees celsius.</li>
+            </ul>
+
             <br>
             <input type="button" value="ADD TO CART" class="btn">
-    </div>
-    <br>
+        </div>
+        <br>
 
     </div>
     <div class="footer">
@@ -137,7 +148,7 @@
             <a href="/home"><img src="/images/recipe.png" style="width: 100px;"></a>
         </div>
         <div class="icon">
-            <a href="/"><img src="/images/compass.png" style="width: 100px;"></a>
+            <a href="/maps"><img src="/images/compass.png" style="width: 100px;"></a>
         </div>
         <div class="icon">
             <img src="/images/heart.png" style="width: 100px;">
@@ -150,9 +161,9 @@
         </div>
     </div>
     <!-- search -->
-    <form action="" method="get">
-        <input type="text" id="search-query">
-    </form>
+    
+    <input type="text" id="search-query">
+
     <!-- <br> -->
     <script src="javascripts/scroll.js"></script>
     <script src="javascripts/search.js"></script>
