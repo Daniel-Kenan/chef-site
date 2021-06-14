@@ -13,6 +13,9 @@
 <body>
     <h1>Log In</h1><br><br>
     <hr><br>
+   <% if (messages.error){ %>
+    <%= messages.error %>
+<%   } %>
     <form action="" method="POST">
         Email <br>
         <input type="email" name="email" id="email" required><br><br>

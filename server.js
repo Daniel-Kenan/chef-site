@@ -1,26 +1,44 @@
 const express = require('express');
 const app = express();
-const db = require(__dirname + '/database-bridge.js')
+const db = require(__dirname + '/database-bridge')
 const bcrypt = require('bcrypt');
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
+const passport_config = require(__dirname + '/passport-config')
+
+const PORT = process.env.PORT || 8080;
+const users = [];
 
 app.set('view engine', 'ejs');
+
+passport_config(passport, email =>  users.find( user => user.email == email ),
+id =>  users.find( user => user.id == id ))
 
 app.use(express.static('public'));
 app.use(express.urlencoded({
     extended: false
 }));
-const users = [];
+app.use(session({
+    secret: 'curate',
+    saveUninitialized: false,
+    resave: false,
 
-const PORT = process.env.PORT || 8080 ;
+}))
 
-const IN_PROD = false ;
+app.use(flash())
+app.use(passport.initialize())
+app.use(passport.session)
+
 
 app.get('/home', (req, res) => {
     res.render('index')
 });
+
 app.get('/', (req, res) => {
     res.render('index')
 });
+
 
 app.get('/login', (req, res) => {
     res.render('log-in')
@@ -37,38 +55,38 @@ app.get('/profile', (req, res) => {
 app.get('/cal', (req, res) => {
     res.render('calender')
 });
-app.get('/maps' ,(req , res)=>{
+app.get('/maps', (req, res) => {
     res.render('maps');
 })
 // log in information 
-app.post('/login', (req, res) => {
+app.post('/login', passport.authenticate('local',{
+    successRedirect : '/profile',
+    failureRedirect : '/login',
+    failureFlash : true
+}))
 
-})
 app.post('/signup', async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         users.push({
-            id: Date.now().toString() ,
-            name  : req.body.name ,
-            email : req.body.email,
-            password : hashedPassword
+            id: Date.now().toString(),
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedPassword
         })
-        res.render('log-in')
+        res.redirect('/login')
     } catch {
-
+     res.redirect('/signup')
     }
     console.log(users)
 })
 
-void
-function DATABASE() {
-    if (IN_PROD) {
+void function DATABASE() {
         db.connect(err => {
             if (err) throw err;
             console.log('Connected to a Database Server!');
-        });
-    }
-}();
+        });  
+};
 
 
 app.listen(PORT, () => {
