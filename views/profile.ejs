@@ -7,18 +7,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Username</title>
+    <title><%= name %></title>
 </head>
 <body>
     <div class="container">
         <h3 style="text-transform: uppercase;"> C<span style="color: chartreuse;">ü</span>rate</h3>
         <!-- Username -->
         <img src="/images/avatar.png" class="img">
-        <input type="button" value="SIGN OUT">
+        <form  action='/logout?_method=DELETE' method="POST" > 
+            <input type="submit" value="SIGN OUT" >
+        </form>
+       
         <br><br><br>
         <br><br><br><br><br><br><br>
-       <div>Username </div> 
-       <div>example@gmail.com</div>
+       <div><%= name %></div> 
+       <div><%= email %></div>
     </div>
 <div class="content-body">
 

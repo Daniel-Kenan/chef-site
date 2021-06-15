@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
-const passport_config = require(__dirname + '/passport-config')
-
+const passport_config = require(__dirname + '/passport-config');
+const methodoverride = require('method-override');
 const PORT = process.env.PORT || 8080;
 const users = [];
 
@@ -28,7 +28,8 @@ app.use(session({
 
 app.use(flash())
 app.use(passport.initialize())
-app.use(passport.session)
+app.use(passport.session())
+app.use(methodoverride('_method'))
 
 
 app.get('/home', (req, res) => {
@@ -40,16 +41,17 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/login', (req, res) => {
+app.get('/login', checkNotauthenticated, (req, res) => {
     res.render('log-in')
 });
 
-app.get('/signup', (req, res) => {
+app.get('/signup', checkNotauthenticated,(req, res) => {
     res.render('sign-up')
 });
 
-app.get('/profile', (req, res) => {
-    res.render('profile')
+app.get('/profile', checkauthenticated, (req, res) => {
+
+    res.render('profile' , {name : req.user.name , email : req.user.email })
 });
 
 app.get('/cal', (req, res) => {
@@ -88,6 +90,23 @@ void function DATABASE() {
         });  
 };
 
+function checkauthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+    res.redirect('/signup')
+}
+
+function checkNotauthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/')
+    }
+    next()
+}
+app.delete('/logout', (req,res)=>{
+    req.logOut()
+    res.redirect('/')
+})
 
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
