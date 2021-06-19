@@ -23,35 +23,9 @@
        <div><%= name %></div> 
        <div><%= email %></div>
     </div>
-<div class="content-body">
 
-    <div class="btns" style="float: left;">
-        <br>
-        <button>Profile</button><br>
-        <button>Orders</button><br>
-        <button>Adresses</button><br>
-        <button>Payments</button><br>
-        <button>Diet</button>
-        
-    </div>
     <div id="rendered-content"></div>
 </div>
-<div class="footer">
-        <div class="icon">
-            <a href="/home"><img src="/images/recipe.png" style="width: 100px;"></a>
-        </div>
-        <div class="icon">
-            <a href="/"><img src="/images/compass.png" style="width: 100px;"></a>
-        </div>
-        <div class="icon">
-            <img src="/images/heart.png" style="width: 100px;">
-        </div>
-        <div class="icon">
-            <a href="/cal"><img src="/images/calender.png" style="width: 100px;"></a>
-        </div>
-        <div class="icon">
-            <a href="/profile"><img src="/images/profile.png" style="width: 100px;"></a>
-        </div>
-    </div>
+<%- include('partials/footer') %>
 </body>
 </html>
