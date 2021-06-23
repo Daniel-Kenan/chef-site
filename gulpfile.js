@@ -3,7 +3,7 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
-const {src , dest} = require('gulp');
+const {src , dest,watch} = require('gulp');
 
 
 function modify_css(){
@@ -12,5 +12,9 @@ function modify_css(){
   return src('./stylesheets/*.css').pipe(postcss(plugins)).pipe(dest('./public/stylesheets'))
   }
 
+  function watchFile (){
+     watch('./stylesheets/*.css',modify_css)
+  }
 
- exports.default = modify_css
+ exports.default = watchFile
+  

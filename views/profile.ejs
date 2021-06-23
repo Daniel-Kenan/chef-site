@@ -13,15 +13,15 @@
     <div class="container">
         <h3 style="text-transform: uppercase;"> C<span style="color: chartreuse;">ü</span>rate</h3>
         <!-- Username -->
-        <img src="/images/avatar.png" class="img">
-        <form  action='/logout?_method=DELETE' method="POST" > 
+        <img src="/images/avatar.png"   style="position: relative; display: block;margin: 0 auto;border-radius: 50%;width: 20%;height: auto;">
+       
+       
+       <h2 class="user"><%= name %></h2> 
+       <h2 class="user"><%= email %></h2> 
+       <br>
+       <form  action='/logout?_method=DELETE' method="POST" > 
             <input type="submit" value="SIGN OUT" >
         </form>
-       
-        <br><br><br>
-        <br><br><br><br><br><br><br>
-       <div><%= name %></div> 
-       <div><%= email %></div>
     </div>
 
     <div id="rendered-content"></div>

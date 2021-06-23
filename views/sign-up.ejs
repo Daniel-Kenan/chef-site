@@ -15,9 +15,9 @@
     <h1> C<span>ü</span>rate</h1>
     
     <h4 style="text-align: center;">
-        <form action="/login" method="get">
-        <input type="submit" value="Log In" style="width: 29.5%; border-radius: 5px;">
-        </form></h4>
+    
+    <div class="log_in" onclick="location.href = '/login' ">Log In</div> 
+    <br>
     <div class="sign_up" id="register">Sign up</div>
     <div id="container" >
     </div>
@@ -27,21 +27,19 @@
         <p style="text-transform: lowercase; font-weight: lighter;">please fill in this form to create an account</p>
         <hr><br>
         <form action="/signup" method="POST"> 
-            name : <br> <input type="text" name="name" id="width" required><br><br>
-            email: <br>  <input type="email" name="email" id="width" required> <br><br>
-            password:  <br> <input type="password" name="password" id="width" required><br><br>
+           <span>name </span>  <br> <input type="text" name="name" id="width" required placeholder="John"><br><br>
+           <span>email</span>  <br>  <input type="email" name="email" id="width" required placeholder="example@gmail"><br><br>
+          <span>password</span>    <br> <input type="password" name="password" id="width" required placeholder="input password"><br><br>
            <br>
-            <input type="checkbox" name="remember" id=""> remember me <br><br>
-            <p style="font-weight: lighter;text-transform: lowercase;">by creating an account you agree to our <a href="">terms and conditions</a></p>
-            <!-- <br> -->
+            
             <input type="button" value="cancel" id="cancel"><input type="submit" value="submit">
         </form>
     </div>  
      
-    <br><br>
+    <br><br><br>
     
     <footer>
-        <div style="text-align: center;">By signing up , you agree with the <a href="">terms of service</a> <br>
+        <div style="text-align: center;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">By signing up , you agree with the <a href="">terms of service</a> <br>
             and<a href='' style="text-align: center;">
                 privacy policy</a></div>
     </footer>

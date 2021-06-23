@@ -7,7 +7,7 @@ const flash = require('express-flash');
 const session = require('express-session');
 const passport_config = require(__dirname + '/passport-config');
 const methodoverride = require('method-override');
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 const users = [];
 
 app.set('view engine', 'ejs');
