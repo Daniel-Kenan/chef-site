@@ -15,13 +15,7 @@
  <div id='map' style='width: 100%; height: 100%'></div> 
  <%- include('partials/footer') %>
  
- <script>
- mapboxgl.accessToken = 'pk.eyJ1IjoiZGFuaWVsLWtlbmFuIiwiYSI6ImNrcW5peWg2dzFmYzMybm54c2E5N2RhMngifQ.k7aPwtnOnlbXLu7wgOyMyw';
- var map = new mapboxgl.Map({
- container: 'map',
- style: 'mapbox://styles/mapbox/streets-v11'
- });
- </script>
+ <%- include('partials/secret_map')
 
 </body>
 </html>
