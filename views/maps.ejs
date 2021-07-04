@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="stylesheets/default.css">
     <link rel="stylesheet" href="stylesheets/footer.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>disabled</title>
+    <title>Location</title>
 </head>
 <body>
-      <style>
-          body{
-              background-image: url('images/maps.gif') ;
-              background-position: center;
-              background-repeat: no-repeat;
-              display: block;
-              height: 100vh;
-          }
-      </style>
-    
+ 
+ <div id='map' style='width: 100%; height: 100%'></div> 
+ <%- include('partials/footer') %>
+ 
+ <script>
+ mapboxgl.accessToken = 'pk.eyJ1IjoiZGFuaWVsLWtlbmFuIiwiYSI6ImNrcW5peWg2dzFmYzMybm54c2E5N2RhMngifQ.k7aPwtnOnlbXLu7wgOyMyw';
+ var map = new mapboxgl.Map({
+ container: 'map',
+ style: 'mapbox://styles/mapbox/streets-v11'
+ });
+ </script>
+
 </body>
 </html>

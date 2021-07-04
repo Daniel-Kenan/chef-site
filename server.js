@@ -16,6 +16,7 @@ passport_config(passport, email =>  users.find( user => user.email == email ),
 id =>  users.find( user => user.id == id ))
 
 app.use(express.static('public'));
+// app.use(express.json());
 app.use(express.urlencoded({
     extended: false
 }));
@@ -53,7 +54,23 @@ app.get('/profile', checkauthenticated, (req, res) => {
 
     res.render('profile' , {name : req.user.name , email : req.user.email })
 });
+app.get('/wishlist',checkauthenticated,(req,res)=>{
+    res.render('wishlist',{wishlist:req.user.wishlist})
+})
+app.post('/addtocart', (req,res) =>{
 
+    try{
+    const obj = JSON.parse(JSON.stringify(req.body));
+   const data = obj['array[]'];
+   req.user.wishlist.push(data);
+   res.sendStatus(200)
+    }catch{
+     throw {message : "failed"}
+    }
+  
+  
+//    user.fruits.push(array)      
+})
 app.get('/cal', (req, res) => {
     res.render('calender')
 });
@@ -67,6 +84,7 @@ app.post('/login', passport.authenticate('local',{
     failureFlash : true
 }))
 
+
 app.post('/signup', async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -74,7 +92,8 @@ app.post('/signup', async (req, res) => {
             id: Date.now().toString(),
             name: req.body.name,
             email: req.body.email,
-            password: hashedPassword
+            password: hashedPassword,
+            wishlist : []
         })
         res.redirect('/login')
     } catch {

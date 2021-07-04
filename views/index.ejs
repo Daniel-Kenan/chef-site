@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/stylesheets/navigation.css">
     <link rel="stylesheet" href="/stylesheets/menu.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/default.css">
 
     <!--jquery  -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -13,7 +14,9 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!--  -->
-
+    <!-- swal alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--  -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,8 +35,7 @@
 
     <div class="body">
 
-        <img src="./images/Chantilly-Cream-07.jpg" alt="chantilly ice cream"
-            style="width: 100%;height: 80%; ">
+        <img src="/images/Chantilly-Cream-07.jpg" alt="chantilly ice cream" style="width: 100%;height: 80%; ">
         <br>
         <div class="content">
             <h3 id="zero"><b>Chantilly cream</b></h3>
@@ -45,12 +47,12 @@
                 <li>Return to the refrigerator immediately until ready to use</li>
             </ul>
             <br>
-            <input type="button" value="ADD TO CART" class="btn">
+            <input type="button" value="ADD TO CART" class="btn"
+                onclick="arrToServer('/images/Chantilly-Cream-07.jpg','Chantilly cream')">
         </div>
         <br>
 
-        <img src="./images/almond-flour-crepes-2 1.jpg" alt="almond-flour-crepes"
-            style="width: 100%;height:80%">
+        <img src="./images/almond-flour-crepes-2 1.jpg" alt="almond-flour-crepes" style="width: 100%;height:80%">
         <br>
         <div class="content">
             <h3 id="one"><b>Almond-flour-crepes</b></h3>
@@ -63,12 +65,11 @@
                     a preheated oven at 230 degrees Celsius.</li>
 
                 <br>
-                <input type="button" value="ADD TO CART" class="btn">
+                <input type="button" value="ADD TO CART" class="btn" onclick="arrToServer('/images/almond-flour-crepes-2 1.jpg','Almond-flour-crepes')">
         </div>
         <br>
         <!--  -->
-        <img src="./images/diplomat pudding.jpg" alt="almond-flour-crepes"
-        style="width: 100%;height:80%">
+        <img src="./images/diplomat pudding.jpg" alt="almond-flour-crepes" style="width: 100%;height:80%">
         <br>
         <div class="content">
             <h3 id="two"><b>Diplomat pudding</b></h3>
@@ -88,12 +89,11 @@
 
                 <br>
                 <br>
-                <input type="button" value="ADD TO CART" class="btn">
+                <input type="button" value="ADD TO CART" class="btn"  onclick="arrToServer('/images/diplomat pudding.jpg','Diplomat pudding')">
         </div>
         <br>
         <!--  -->
-        <img src="./images/courgette-flowers 1.jpg" alt="almond-flour-crepes"
-        style="width: 100%;height:80%">
+        <img src="./images/courgette-flowers 1.jpg" alt="almond-flour-crepes" style="width: 100%;height:80%">
         <br>
         <div class="content">
             <h3 id="three"><b>Marrow flower fritters</b></h3>
@@ -106,15 +106,14 @@
             </ul>
             <h5>(Larousse Gastronomique Vegetables and Salads by Robuchon Joel)</h5>
             <br>
-            <input type="button" value="ADD TO CART" class="btn">
+            <input type="button" value="ADD TO CART" class="btn" onclick="arrToServer('/images/courgette-flowers 1.jpg','Marrow flower fritters')">
         </div>
         <br>
 
 
         <!--  -->
 
-        <img src="./images/turnip-gratin1 1.jpg" alt="almond-flour-crepes"
-        style="width: 100%;height:80%">
+        <img src="./images/turnip-gratin1 1.jpg" alt="Turnips au gratin" style="width: 100%;height:80%">
         <br>
         <div class="content">
             <h3 id="four"><b>Turnips au gratin</b></h3>
@@ -127,17 +126,52 @@
             </ul>
 
             <br>
-            <input type="button" value="ADD TO CART" class="btn">
+            <input type="button" value="ADD TO CART" class="btn"  onclick="arrToServer('/images/turnip-gratin1 1.jpg','Turnips au gratin')">
         </div>
         <br>
 
     </div>
-   <%- include('partials/footer') %>
+    <%- include('partials/footer') %>
     <!-- search -->
-    
+
     <input type="text" id="search-query">
 
     <!-- <br> -->
+    <script>
+   
+        function addToCart(recipe,sucess=null ) {
+        if(!sucess){
+            Swal.fire({
+                icon: 'error',
+                title: `Login to add ${recipe} to cart`,
+                showConfirmButton: false,
+                timer: 1500
+            })
+            return
+        }
+        Swal.fire({
+                icon: 'success',
+                title: `${recipe} added to cart`,
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+
+        function arrToServer(image_url, name_of_recipe) {
+            let arr = [image_url, name_of_recipe];
+            $.ajax({
+                url: "/addtocart",
+                type: "POST",
+                data: {
+                    array: arr
+                }
+            }).done(()=> {
+                addToCart(name_of_recipe,"added to cart");
+            }).fail(()=> {
+                addToCart(name_of_recipe);
+            });
+        }
+    </script>
     <script src="javascripts/scroll.js"></script>
     <script src="javascripts/search.js"></script>
     <!-- <br> -->
