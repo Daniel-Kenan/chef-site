@@ -3,21 +3,10 @@
 const search = document.getElementById("search"),
     search_query = document.getElementById("search-query");
 
-let i = 0;
 
-search.addEventListener("click", () => {
-    if (i == 0) {
-        search_query.style.display = "block";
-        --i;
-        window.scrollTo(0, 0);
-        return
-    }
-    search_query.style.display = "none";
-    ++i;
-})
 search_query.addEventListener('keypress', (e) => {
     try {
-        let component = _(recipes.indexOf(search_query.value));
+        let component = fetchRecipeId(recipes.indexOf(search_query.value));
         // console.log(component)
         document.getElementById(component).scrollIntoView();
 
@@ -25,15 +14,9 @@ search_query.addEventListener('keypress', (e) => {
         null
     }
 })
-var recipes = [
-    "Chantilly cream",
-    "Almond-flour-crepes",
-    "Diplomat pudding",
-    "Marrow flower fritters",
-    "Turnips au gratin"
-];
+
 // jquery
-function _(val) {
+function fetchRecipeId(val) {
     switch (val) {
         case 0:
             return "zero";
@@ -47,11 +30,7 @@ function _(val) {
             return "four"
     }
 }
-$(function () {
-    $("#search-query").autocomplete({
-        source: recipes
-    });
-});
+
 
 
 {

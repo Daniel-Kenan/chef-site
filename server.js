@@ -8,7 +8,12 @@ const session = require('express-session');
 const passport_config = require(__dirname + '/passport-config');
 const methodoverride = require('method-override');
 const PORT = process.env.PORT || 3000;
-const users = [];
+const users = [{ id: '1642963253313',
+name: 'Administrator',
+email: 'sdanielkenan@gmail.com',
+password:
+ '$2b$10$fmjOOGmiDCXR6DwHtwIX1.BpPcfDVu6K4s6Zg1b/wXyViaubD34xC',
+wishlist: [] } ];
 
 app.set('view engine', 'ejs');
 

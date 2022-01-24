@@ -1,13 +1,12 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/stylesheets/search.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="shortcut icon" href="/images/food.ico" type="image/x-icon">
     <link rel="stylesheet" href="/stylesheets/navigation.css">
-    <link rel="stylesheet" href="/stylesheets/menu.css">
-    <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/default.css">
-
+    
     <!--jquery  -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
@@ -20,25 +19,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curate</title>
+    <title>CooK</title>
 </head>
 
 <body>
     <%- include('partials/header') %>
-    <div class="opt">
-        <div> <a href="/signup">Sign Up/Log In</a></div>
-        <div>Contact Us</div>
-        <div>About Us</div>
-        <div>Apply To Be A Chief</div>
-    </div>
+   
 
-
-    <div class="body">
-
-        <img src="/images/Chantilly-Cream-07.jpg" alt="chantilly ice cream" style="width: 100%;height: 80%; ">
+        <img src="/images/Chantilly-Cream-07.jpg" alt="chantilly ice cream" id="zero" style="width: 100%;max-height: 80%; ">
         <br>
         <div class="content">
-            <h3 id="zero"><b>Chantilly cream</b></h3>
+            <h3 ><b>Chantilly cream</b></h3>
             <ul>
                 <li>Chill some double(heavy) and some milk in the refrigerator</li>
                 <li>Mix the well-chilled cream with a third of its volume of very cold milk and whisk until frothy</li>
@@ -52,10 +43,10 @@
         </div>
         <br>
 
-        <img src="./images/almond-flour-crepes-2 1.jpg" alt="almond-flour-crepes" style="width: 100%;height:80%">
+        <img src="./images/almond-flour-crepes-2 1.jpg" id="one" alt="almond-flour-crepes" style="width: 100%;max-height:80%">
         <br>
         <div class="content">
-            <h3 id="one"><b>Almond-flour-crepes</b></h3>
+            <h3 ><b>Almond-flour-crepes</b></h3>
             <ul>
                 <li>Prepare some sweet crepe batter and leave it to stand.</li>
                 <li>Meanwhile, make some confectioner's custard(pastry cream), adding 75 g ground almonds to each 600 ml
@@ -69,10 +60,10 @@
         </div>
         <br>
         <!--  -->
-        <img src="./images/diplomat pudding.jpg" alt="almond-flour-crepes" style="width: 100%;height:80%">
+        <img src="./images/diplomat pudding.jpg" id="two" alt="almond-flour-crepes" style="width: 100%;height:80%">
         <br>
         <div class="content">
-            <h3 id="two"><b>Diplomat pudding</b></h3>
+            <h3 ><b>Diplomat pudding</b></h3>
             <ul>
                 <li>Coarsely chop 100 g candied fruits.</li>
                 <li>Put in a bowl with 75 g raisins and add 100 ml rum. Leave to macerate for 1 hour.</li>
@@ -93,10 +84,10 @@
         </div>
         <br>
         <!--  -->
-        <img src="./images/courgette-flowers 1.jpg" alt="almond-flour-crepes" style="width: 100%;height:80%">
+        <img src="./images/courgette-flowers 1.jpg" id="three" alt="almond-flour-crepes" style="width: 100%;height:80%">
         <br>
         <div class="content">
-            <h3 id="three"><b>Marrow flower fritters</b></h3>
+            <h3 ><b>Marrow flower fritters</b></h3>
             <ul>
                 <li>Pick very fresh marrow flowers and wash them only if necessary.</li>
                 <li>Pat them dry, dip them in a light batter and deep-fry them in hot fat at 180 degrees celsius until
@@ -113,10 +104,10 @@
 
         <!--  -->
 
-        <img src="./images/turnip-gratin1 1.jpg" alt="Turnips au gratin" style="width: 100%;height:80%">
+        <img src="./images/turnip-gratin1 1.jpg" id="four" alt="Turnips au gratin" style="width: 100%;height:80%">
         <br>
         <div class="content">
-            <h3 id="four"><b>Turnips au gratin</b></h3>
+            <h3 ><b>Turnips au gratin</b></h3>
             <ul>
                 <li>Peel some turnips and slice them into rounds.</li>
                 <li>Blanch them in boiling salted water, drain and refresh under cold running water and braise in
@@ -130,15 +121,15 @@
         </div>
         <br>
 
-    </div>
+    
     <%- include('partials/footer') %>
     <!-- search -->
 
-    <input type="text" id="search-query">
+    <!-- <input type="text" id="search-query"> -->
 
     <!-- <br> -->
     <script>
-   
+   console.log(process)
         function addToCart(recipe,sucess=null ) {
         if(!sucess){
             Swal.fire({

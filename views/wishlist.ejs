@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="/images/food.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/stylesheets/navigation.css">
     <link rel="stylesheet" href="/stylesheets/default.css">
-    <link rel="stylesheet" href="/stylesheets/footer.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,17 +23,21 @@
         .text{
             display: flex;align-items: center;
         }
+        body{
+            height: 100%;
+            width: 100%;
+        }
     </style>
-   <div class="container" >
-       <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;text-align: center;">Wishlist</h1>
+   <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;text-align: center;">Wishlist</h1>
+   <div style="height: 80%;">
+      
      <ul>
          <% const a = wishlist; for (let i = 0; i < a.length; i++ ){ %>
             <li><img src="<%= a[i][0] %>" alt=""><div class="text"><%= a[i][1] %></div></li>
             <% } %>
      </ul>
-
-    
    </div>
+   <br>
     <%- include('partials/footer') %>
 </body>
 </html>

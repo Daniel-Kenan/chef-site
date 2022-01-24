@@ -1,13 +1,80 @@
-<div class="header">
-    <div class="img">
-        <img src="/images/PinClipart.com_menu-clip-art_1128307.png"
-            style="width: 40px;height: 25px; color: aliceblue; margin-top: 15px; margin-left: 6px;">
-    </div>
+<style>
+    .opt{display: none;}
+    .hi{z-index: 999999999999999;}
+</style>
+<div class="header" style="background-color: black;">
+    
+<img src="/images/PinClipart.com_menu-clip-art_1128307.png" class="menu-btn"
+style="width: 40px;height: 25px; color: aliceblue; margin-top: 15px; margin-left: 6px;float:left">
+    
     <div class="img"
         style="margin : 0 auto; width: 200px; padding: 5px 40px; font-size: xx-large;color: aliceblue; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-        C<span style="text-transform: uppercase;color: chartreuse;">ü</span>RATE
+        C<span style="text-transform: uppercase;color: chartreuse;">OO</span>K
     </div>
-    <div class="img">
-        <img src="/images/magnifying-glass.png" style="width: 45px;height: 45px;" id="search">
+    <img src="/images/magnifying-glass.png"  id="search" >
+          
+    <div class="opt">
+        <div> <a href="/signup">Sign Up/Log In</a></div>
+        <div>Contact Us</div>
+        <div>About Us</div>
+        <div>Apply To Be A Chief</div>
     </div>
-</div>
+</div> 
+<script>
+var recipes = [
+    "Chantilly cream",
+    "Almond-flour-crepes",
+    "Diplomat pudding",
+    "Marrow flower fritters",
+    "Turnips au gratin"
+];
+
+    $(document).ready(()=>{
+     $('.menu-btn').click(()=>{
+        $('.opt').slideToggle(250)
+    });
+
+    $('#search').click(()=>{
+        Swal.fire({
+    title: "Search for a recipe",
+    text: "Write something interesting:",
+    input: 'text',
+    inputAttributes:{
+        id:"search-query"
+    },customClass:{
+container:"parent"
+    },
+    showCancelButton: true        
+}).then((result) => {
+    
+   
+    if (result.value) { 
+        try {
+        let component = fetchRecipeId(recipes.indexOf(result.value));
+        console.log(component)
+        document.getElementById(component).scrollIntoView();
+        if(!component) throw {msg:'component not found'};
+    } catch {
+        Swal.fire({
+                icon: 'info',
+                title: `recipe not found`,
+                showConfirmButton: false,
+                timer: 1500
+            })
+    }
+     } });
+    document.querySelector('#search-query').addEventListener('keypress',(e)=>{
+        
+    
+        $(function () {
+    $("#search-query").autocomplete({
+        classes:{'ui-autocomplete':'hi'},
+        source: recipes,
+        appendTo:'.swal2-popup swal2-modal swal2-hide'
+    });
+});
+})
+    });})
+
+
+</script>

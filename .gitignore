@@ -1,4 +1,4 @@
 .env
 node_modules
 /stylesheets
-/views/partials/secret_map.ejs
+

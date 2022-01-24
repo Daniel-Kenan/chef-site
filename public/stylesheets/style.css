@@ -1,1 +1,1 @@
-body{font:14px Lucida Grande,Helvetica,Arial,sans-serif;padding:50px}a{color:#00b7ff}
+:root{--color-theme:#7fff00}*{box-sizing:border-box}html{scroll-behavior:smooth}body{font:14px Lucida Grande,Helvetica,Arial,sans-serif;padding:50px}body,html{height:100%;margin:0;padding:0;width:100%}a{color:#00b7ff}
